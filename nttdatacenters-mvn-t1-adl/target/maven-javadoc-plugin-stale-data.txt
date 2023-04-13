@@ -1,0 +1,50 @@
+-J-Xmx512m
+@options
+@packages
+--class-path
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/target/classes;C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/target/test-classes;C:/dev/core/apache/repositorios/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar;C:/dev/core/apache/repositorios/junit/junit/3.8.1/junit-3.8.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'20'
+-sourcepath
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'nttdatacenters-mvn-t1-adl 0.0.1-SNAPSHOT Test API'
+-link
+'../apidocs'
+-use
+-version
+-windowtitle
+'nttdatacenters-mvn-t1-adl 0.0.1-SNAPSHOT Test API'
+com.nttdata.mvn
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\src\test\java = 1681386133741
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\allclasses-index.html = 1681402704564
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\allpackages-index.html = 1681402704565
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\copy.svg = 1681402704585
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\element-list = 1681402704534
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\help-doc.html = 1681402704581
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\index-all.html = 1681402704575
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\index.html = 1681402704578
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\javadoc.bat = 1681402703900
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\member-search-index.js = 1681402704569
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\module-search-index.js = 1681402704566
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\overview-tree.html = 1681402704557
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\package-search-index.js = 1681402704567
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\script.js = 1681402704584
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\search-page.js = 1681402704588
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\search.html = 1681402704577
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\search.js = 1681402704587
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\stylesheet.css = 1681402704583
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\tag-search-index.js = 1681402704570
+C:\dev\ide\eclipse\workspace\Talleres\nttdatacenters-mvn-t1-adl\target\site\testapidocs\type-search-index.js = 1681402704568

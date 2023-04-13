@@ -1,0 +1,1 @@
+cmd.exe /X /C "C:\dev\core\jdk\version\jdk-20\bin\javadoc.exe -J-Xmx512m @options @packages"

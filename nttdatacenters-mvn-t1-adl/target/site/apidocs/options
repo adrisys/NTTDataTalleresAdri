@@ -1,0 +1,24 @@
+--class-path
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/target/classes;C:/dev/core/apache/repositorios/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar;C:/dev/core/apache/repositorios/junit/junit/3.8.1/junit-3.8.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'20'
+-sourcepath
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/dev/ide/eclipse/workspace/Talleres/nttdatacenters-mvn-t1-adl/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'nttdatacenters-mvn-t1-adl 0.0.1-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'nttdatacenters-mvn-t1-adl 0.0.1-SNAPSHOT API'

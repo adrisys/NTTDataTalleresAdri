@@ -123,7 +123,7 @@ public class App {
 				CONSOLE.info("Measurement registered");
 				break;
 			case 2:
-				stats();
+				stats(t);
 				break;
 			case 3:
 				String message;
@@ -147,7 +147,7 @@ public class App {
 
 //Warnings
 	private static void temperatureWarning(int temp) {
-		if (temp < 50 || temp < -20)
+		if (temp > 50 || temp < -20)
 			CONSOLE.warn("Extreme temperature value");
 	}
 
@@ -174,11 +174,10 @@ public class App {
 	/**
 	 * Method to show stats about data recorded
 	 */
-	public static void stats() {
-		Scanner t = new Scanner(System.in);
+	public static void stats(Scanner t) {
 		int month;
 		int day;
-		int e;
+		int e2;
 		System.out.println("For what day do you want to read stats?");
 		System.out.println("Type month number");
 		month = t.nextInt();
@@ -198,8 +197,8 @@ public class App {
 				System.out.println("2. Min Temp");
 				System.out.println("3. Temp Average");
 				System.out.println("4. Go Back");
-				e = t.nextInt();
-				switch (e) {
+				e2 = t.nextInt();
+				switch (e2) {
 				case 1:
 					double max = Measurement.getMaxTemp(LocalDateTime.of(2023, month, day, 0, 0), 24, ChronoUnit.HOURS);
 					System.out.println("That day maximum temperature was " + max + END_SENTENCE);
@@ -209,7 +208,7 @@ public class App {
 					System.out.println("That day minimum temperature was " + min + END_SENTENCE);
 					break;
 				case 3:
-					int avg = Measurement.getAvg(LocalDateTime.of(2023, month, day, 0, 0), 24, ChronoUnit.HOURS);
+					double avg = Measurement.getAvg(LocalDateTime.of(2023, month, day, 0, 0), 24, ChronoUnit.HOURS);
 					System.out.println("Temperatture avergae that day was " + avg + END_SENTENCE);
 					break;
 				case 4:
@@ -218,14 +217,13 @@ public class App {
 					CONSOLE.error("You must Type number between 1 and 4");
 					break;
 				}
-			} while (e != 4);
+			} while (e2 != 4);
 
 		} catch (Exception ex) {
 			CONSOLE.error(ex.getMessage());
 
 		}
 
-		t.close();
 	}
 
 	/**
@@ -235,8 +233,14 @@ public class App {
 	 * @throws NoMeasurementException
 	 */
 	private static void thereIsMeasurements(LocalDateTime inputDate) throws NoMeasurementException {
-		Collections.sort(Measurement.list);
-		if (inputDate.isBefore(Measurement.list.get(0).gethour()))
+		boolean found = Boolean.FALSE;
+		for (Measurement m : Measurement.list) {
+			if (m.gethour().getDayOfYear() == inputDate.getDayOfYear()) {
+				found = Boolean.TRUE;
+				break;
+			}
+		}
+		if (!found)
 			throw new NoMeasurementException();
 	}
 

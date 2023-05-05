@@ -80,7 +80,12 @@ class Measurement implements Comparable<Measurement> {
 	 * @return max value
 	 */
 	public static double getMaxTemp(LocalDateTime start, long period, TemporalUnit units) {
-		return Collections.max(obtainMeasurements(start, period, units)).gettemp();
+		List<Measurement> measurements = obtainMeasurements(start, period, units);
+		List<Double> temps = new ArrayList<>();
+		for (Measurement r : measurements) {
+			temps.add(r.gettemp());
+		}
+		return Collections.max(temps);
 	}
 
 	/**
@@ -92,7 +97,12 @@ class Measurement implements Comparable<Measurement> {
 	 * @return min value
 	 */
 	public static double getMinTemp(LocalDateTime start, long period, TemporalUnit units) {
-		return Collections.min(obtainMeasurements(start, period, units)).gettemp();
+		List<Measurement> measurements = obtainMeasurements(start, period, units);
+		List<Double> temps = new ArrayList<>();
+		for (Measurement r : measurements) {
+			temps.add(r.gettemp());
+		}
+		return Collections.min(temps);
 	}
 
 	/**
@@ -103,15 +113,15 @@ class Measurement implements Comparable<Measurement> {
 	 * @param units
 	 * @return valor de la temp media
 	 */
-	public static int getAvg(LocalDateTime start, long period, TemporalUnit units) {
+	public static double getAvg(LocalDateTime start, long period, TemporalUnit units) {
+		List<Measurement> measurements = obtainMeasurements(start, period, units);
 		double sum = 0;
-		int s = 1;
-
-		for (Measurement r : obtainMeasurements(start, period, units)) {
+		double s = 0;
+		for (Measurement r : measurements) {
 			sum += r.gettemp();
 			s++;
 		}
-		return (int) Math.round(sum / s);
+		return sum / s;
 
 	}
 

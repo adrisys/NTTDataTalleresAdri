@@ -1,0 +1,47 @@
+<configuration debug="true">
+    <!-- VARIABLES -->
+    <property name="fileIndex" value="0" />
+    
+	<!-- SALIDA POR CONSOLA -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %magenta(%logger{15}) -%msg %n</pattern>
+		</encoder>
+	</appender>
+	
+	
+	<!-- SALIDA POR FICHERO ROLLING -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+	
+		<!-- RUTA Y NOMBRE DEL FICHERO -->
+		<file>./logs/salidaFicheroRolling.log</file>
+		
+		<!-- POLÍTICA DE TRATAMIENTO DEL FICHERO -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>./logs/salidaFicheroRolling-%i.zip</fileNamePattern>
+		</rollingPolicy>
+		
+		<!-- CANTIDAD DE FICHEROS POSIBLES -->
+		<minIndex>1</minIndex>
+		<maxIndex>3</maxIndex>
+		
+		<!--  CADA CUÁNTO SALTA EL CORTE -->
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>50KB</maxFileSize>
+		</triggeringPolicy>
+		
+		<!-- FORMATO DE SALIDA -->
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<!-- LOGGER ROOT -->
+	<root level="debug">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

@@ -279,14 +279,13 @@ public class Game {
 			printFrame(Math.sqrt(5));
 		}
 		bounce();
-//		if (r.nextDouble() > 0.35)
-//			currentThread = 7; // 65% de probabilidad de tomar el camino 7 y volver al camino 6, 7% de tomar
-//								// el camino 11 y 28% de tomar el camino 8.
-//		else if (r.nextDouble() < 0.2)
-//			currentThread = 11;
-//		else
-//			currentThread = 8;
-		currentThread = 11;
+		if (r.nextDouble() > 0.35)
+			currentThread = 7; // 65% de probabilidad de tomar el camino 7 y volver al camino 6, 7% de tomar
+								// el camino 11 y 28% de tomar el camino 8.
+		else if (r.nextDouble() < 0.2)
+			currentThread = 11;
+		else
+			currentThread = 8;
 
 	}
 

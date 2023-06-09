@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/nttdata/javat3/business/ManagementServiceI.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/business/ManagementServiceImpl.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/data/entities/Employee.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/data/entities/Person.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/data/entities/Student.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/presentation/Menus.java=UTF-8
+encoding//src/main/java/com/nttdata/javat3/presentation/T3Mainadl.java=UTF-8
+encoding//src/main/java/utils/Utils.java=UTF-8
+encoding/<project>=UTF-8

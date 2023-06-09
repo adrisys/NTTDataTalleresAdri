@@ -69,7 +69,7 @@ public class Game {
 	 */
 	public void launchAndStart() throws InterruptedException, ThreadError {
 		this.startTime = System.currentTimeMillis();
-		while (currentThread != 11) {
+		while (currentThread != 12) {
 			switch (currentThread) {
 			case 1:
 				camino1();
@@ -100,6 +100,9 @@ public class Game {
 				break;
 			case 10:
 				camino10();
+				break;
+			case 11:
+				camino11();
 				break;
 			default:
 				throw new ThreadError("Error al asignar camino");
@@ -206,7 +209,7 @@ public class Game {
 			ball.setx(ball.getx() - 1);
 			printFrame(Math.sqrt(5));
 		}
-		currentThread = 11; // Aqui no hay rebote porque el camino 11 es que la pelota ha llegado al suelo
+		currentThread = 12; // Aqui no hay rebote porque el camino 12 es que la pelota ha llegado al suelo
 		new Score(player, score);
 	}
 
@@ -277,8 +280,10 @@ public class Game {
 		}
 		bounce();
 		if (r.nextDouble() > 0.35)
-			currentThread = 7; // 65% de probabilidad de tomar el camino 7 y volver al camino 6, 35% de tomar
-								// el camino 8.
+			currentThread = 7; // 65% de probabilidad de tomar el camino 7 y volver al camino 6, 7% de tomar
+								// el camino 11 y 28% de tomar el camino 8.
+		else if (r.nextDouble() < 0.2)
+			currentThread = 11;
 		else
 			currentThread = 8;
 
@@ -346,7 +351,7 @@ public class Game {
 			printFrame(1);
 		}
 
-		currentThread = 11;
+		currentThread = 12;
 		new Score(player, score);
 	}
 
@@ -373,6 +378,27 @@ public class Game {
 			currentThread = 2;
 		}
 
+	}
+
+	/**
+	 * Metodo que hace que la pelota recorra el camino 11.
+	 * 
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
+	 */
+	private void camino11() throws InterruptedException {
+		ball.setx(ball.getx() + 2);
+		printFrame(2 * Math.sqrt(5));
+		ball.sety(ball.gety() + 1);
+		ball.setx(ball.getx() + 5);
+		printFrame(Math.sqrt(26));
+		bounce();
+
+		for (int i = 0; i < 4; i++) {
+			ball.sety(ball.gety() - 1);
+			printFrame(1);
+		}
+		currentThread = 12;
+		new Score(player, score);
 	}
 
 	// Getter y Setter para la puntuacion

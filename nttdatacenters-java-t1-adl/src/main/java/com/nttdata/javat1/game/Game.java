@@ -4,14 +4,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Clase que contiene la lógica de un partida
+ * Clase que contiene la logica de un partida
  * 
  * @author adri
  *
  */
 public class Game {
 	/**
-	 * Objeto random para obtener números pseudo-aleatorios
+	 * Objeto random para obtener numeros pseudo-aleatorios
 	 */
 	private static Random r = new Random();
 	/**
@@ -23,7 +23,7 @@ public class Game {
 	 */
 	private long score;
 	/**
-	 * Multiplicador de puntuación
+	 * Multiplicador de puntuacion
 	 */
 	private long bonus;
 	/**
@@ -43,14 +43,14 @@ public class Game {
 	 */
 	private Ball ball;
 	/**
-	 * Camino actual que está recorriendo la pelota.
+	 * Camino actual que esta recorriendo la pelota.
 	 */
 	private int currentThread;
 
 	/**
-	 * Constructor único, inicializa los atributos del juego
+	 * Constructor unico, inicializa los atributos del juego
 	 * 
-	 * @param sc
+	 * @param sc Scanner para leer la entrada del jugador
 	 */
 	public Game(Scanner sc) {
 		this.score = 0;
@@ -62,11 +62,10 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace comenzar la partida
+	 * Metodo que hace comenzar la partida
 	 * 
-	 * @throws InterruptedException
-	 * @throws ThreadError
-	 * @throws Exception
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
+	 * @throws ThreadError          si se produce un error al asignar el camino
 	 */
 	public void launchAndStart() throws InterruptedException, ThreadError {
 		this.startTime = System.currentTimeMillis();
@@ -110,56 +109,56 @@ public class Game {
 	}
 
 	/**
-	 * Método que obtiene el indice que representa una posicion concreta en
-	 * StringBuilder a partir de las coordenadas cartesianas de la posición de la
+	 * Metodo que obtiene el indice que representa una posicion concreta en
+	 * StringBuilder a partir de las coordenadas cartesianas de la posicion de la
 	 * pelota
 	 * 
-	 * @param x
-	 * @param y
-	 * @return
+	 * @param x coordenada x
+	 * @param y coordenada y
+	 * @return indice de la posicion en StringBuilder
 	 */
 	private int getFieldIndex(int x, int y) {
 		return ((field.getHeight() - (y + 1)) * (field.getWidth() + 1) + x + 1);
 	}
 
 	/**
-	 * Método que suma la puntuación correspondiente a un rebote
+	 * Metodo que suma la puntuacion correspondiente a un rebote
 	 */
 	private void bounce() {
 		score += bonus * 1000;
 	}
 
 	/**
-	 * Método que imprime un frame en un instante de la partida. Contiene tambié la
-	 * lógica para añadir la puntuación correspondiente al paso del tiempo.
+	 * Metodo que imprime un frame en un instante de la partida. Contiene tambie la
+	 * logica para añadir la puntuacion correspondiente al paso del tiempo.
 	 * 
-	 * @param correccionVelocidad parámetro que corrige la velocidad de la pelota
-	 *                            según cómo se mueva. El valor 1 corresponde a
+	 * @param correccionVelocidad parametro que corrige la velocidad de la pelota
+	 *                            segun como se mueva. El valor 1 corresponde a
 	 *                            100ms y se considera que es lo que tarda la pelota
-	 *                            en moverse una posición hacia abajo
-	 * @throws InterruptedException
+	 *                            en moverse una posicion hacia abajo
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void printFrame(double correccionVelocidad) throws InterruptedException {
 		long tiempoActual;
-		StringBuilder frameBuilder = new StringBuilder(field.getField()); // Se carga el campo vacío
-		frameBuilder.setCharAt(getFieldIndex(ball.getx(), ball.gety()), ball.getTipo()); // Se indica donde está
+		StringBuilder frameBuilder = new StringBuilder(field.getField()); // Se carga el campo vacio
+		frameBuilder.setCharAt(getFieldIndex(ball.getx(), ball.gety()), ball.getTipo()); // Se indica donde esta
 																							// la pelota
 		System.out.println(frameBuilder.toString()); // Se imprime el campo con la pelota
 		tiempoActual = (System.currentTimeMillis() - startTime); // Se obtiene el tiempo actual
-		score += (tiempoActual - lastTime) * bonus; // Se suma la puntuación correspondiente al tiempo en
+		score += (tiempoActual - lastTime) * bonus; // Se suma la puntuacion correspondiente al tiempo en
 													// este tramo entre frames.
 		lastTime = tiempoActual; // Se guarda el tiempo actual para usarlo en la proxima llamada
-		System.out.println("La puntuación actual es de: " + score); // Se imprime la puntuación
-		Thread.sleep((long) (100 * correccionVelocidad)); // Se esperan el tiempo correspondiente a cómo se mueva la
-															// bola según el parámetro de corrección. La base son 100 ms
+		System.out.println("La puntuacion actual es de: " + score); // Se imprime la puntuacion
+		Thread.sleep((long) (100 * correccionVelocidad)); // Se esperan el tiempo correspondiente a como se mueva la
+															// bola segun el parametro de correccion. La base son 100 ms
 															// para poder visualizar el movimiento en la consola.
 
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 1.
+	 * Metodo que hace que la pelota recorra el camino 1.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino1() throws InterruptedException {
 		for (int i = 0; i < 16; i++) {
@@ -172,20 +171,20 @@ public class Game {
 		else {
 			ball.setx(ball.getx() - 1);
 			ball.sety(ball.gety() + 1);
-			printFrame(1.5); // Se aumenta el tiempo porque la pelota está rebotando.
+			printFrame(1.5); // Se aumenta el tiempo porque la pelota esta rebotando.
 			currentThread = 3;
 		}
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 2.
+	 * Metodo que hace que la pelota recorra el camino 2.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino2() throws InterruptedException {
 		ball.setx(ball.getx() - 1);
-		printFrame(1 + Math.sqrt(5)); // Se aumenta el tiempo porque la pelota está rebotando. Preguntame el por qué
-										// de la operacion matemática y te lo explico.
+		printFrame(1 + Math.sqrt(5)); // Se aumenta el tiempo porque la pelota esta rebotando. Preguntame el por que
+										// de la operacion matematica y te lo explico.
 		for (int i = 0; i < 3; i++) {
 			ball.sety(ball.gety() - 1);
 			ball.setx(ball.getx() - 2);
@@ -207,14 +206,14 @@ public class Game {
 			ball.setx(ball.getx() - 1);
 			printFrame(Math.sqrt(5));
 		}
-		currentThread = 11; // Aquí no hay rebote porque el camino 11 es que la pelota ha llegado al suelo
+		currentThread = 11; // Aqui no hay rebote porque el camino 11 es que la pelota ha llegado al suelo
 		new Score(player, score);
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 3.
+	 * Metodo que hace que la pelota recorra el camino 3.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino3() throws InterruptedException {
 
@@ -230,9 +229,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 4.
+	 * Metodo que hace que la pelota recorra el camino 4.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino4() throws InterruptedException {
 		for (int i = 0; i < 4; i++) {
@@ -240,7 +239,7 @@ public class Game {
 			ball.setx(ball.getx() + 1);
 			printFrame(Math.sqrt(5));
 		}
-		bonus *= 2; // Al rebotar aquí se aumenta el multiplicador de puntuación
+		bonus *= 2; // Al rebotar aqui se aumenta el multiplicador de puntuacion
 		bounce();
 		for (int i = 0; i < 4; i++) {
 			ball.sety(ball.gety() - 1);
@@ -252,9 +251,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 5.
+	 * Metodo que hace que la pelota recorra el camino 5.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino5() throws InterruptedException {
 		for (int i = 0; i < 8; i++) {
@@ -266,9 +265,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 6.
+	 * Metodo que hace que la pelota recorra el camino 6.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino6() throws InterruptedException {
 		for (int i = 0; i < 5; i++) {
@@ -286,9 +285,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 7.
+	 * Metodo que hace que la pelota recorra el camino 7.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino7() throws InterruptedException {
 		for (int i = 0; i < 4; i++) {
@@ -308,9 +307,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 8.
+	 * Metodo que hace que la pelota recorra el camino 8.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino8() throws InterruptedException {
 		ball.setx(ball.getx() + 2);
@@ -330,9 +329,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 9.
+	 * Metodo que hace que la pelota recorra el camino 9.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino9() throws InterruptedException {
 
@@ -352,9 +351,9 @@ public class Game {
 	}
 
 	/**
-	 * Método que hace que la pelota recorra el camino 10.
+	 * Metodo que hace que la pelota recorra el camino 10.
 	 * 
-	 * @throws InterruptedException
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	private void camino10() throws InterruptedException {
 		for (int i = 0; i < 9; i++) {
@@ -376,59 +375,135 @@ public class Game {
 
 	}
 
-//Getters y setters 
+	// Getter y Setter para la puntuacion
+	/**
+	 * Obtiene la puntuacion actual del juego.
+	 * 
+	 * @return La puntuacion actual del juego.
+	 */
 	public long getPuntuacion() {
 		return score;
 	}
 
+	/**
+	 * Establece la puntuacion del juego.
+	 * 
+	 * @param puntuacion La nueva puntuacion del juego.
+	 */
 	public void setPuntuacion(long puntuacion) {
 		this.score = puntuacion;
 	}
 
+	// Getter y Setter para el bonus
+	/**
+	 * Obtiene el valor actual del bonus del juego.
+	 * 
+	 * @return El valor actual del bonus del juego.
+	 */
 	public long getBonus() {
 		return bonus;
 	}
 
+	/**
+	 * Establece el valor del bonus del juego.
+	 * 
+	 * @param bonus El nuevo valor del bonus del juego.
+	 */
 	public void setBonus(long bonus) {
 		this.bonus = bonus;
 	}
 
+	// Getter y Setter para el tiempo anterior
+	/**
+	 * Obtiene el tiempo anterior del juego.
+	 * 
+	 * @return El tiempo anterior del juego.
+	 */
 	public long getTiempoAnterior() {
 		return lastTime;
 	}
 
+	/**
+	 * Establece el tiempo anterior del juego.
+	 * 
+	 * @param tiempoAnterior El nuevo tiempo anterior del juego.
+	 */
 	public void setTiempoAnterior(long tiempoAnterior) {
 		this.lastTime = tiempoAnterior;
 	}
 
+	// Getter y Setter para el tiempo inicial
+	/**
+	 * Obtiene el tiempo inicial del juego.
+	 * 
+	 * @return El tiempo inicial del juego.
+	 */
 	public long getTiempoInicial() {
 		return startTime;
 	}
 
+	/**
+	 * Establece el tiempo inicial del juego.
+	 * 
+	 * @param tiempoInicial El nuevo tiempo inicial del juego.
+	 */
 	public void setTiempoInicial(long tiempoInicial) {
 		this.startTime = tiempoInicial;
 	}
 
+	// Getter y Setter para el camino actual
+	/**
+	 * Obtiene el camino actual del juego.
+	 * 
+	 * @return El camino actual del juego.
+	 */
 	public int getCaminoActual() {
 		return currentThread;
 	}
 
+	/**
+	 * Establece el camino actual del juego.
+	 * 
+	 * @param caminoActual El nuevo camino actual del juego.
+	 */
 	public void setCaminoActual(int caminoActual) {
 		this.currentThread = caminoActual;
 	}
 
+	// Getter y Setter para el jugador
+	/**
+	 * Obtiene el nombre del jugador.
+	 * 
+	 * @return El nombre del jugador.
+	 */
 	public String getJugador() {
 		return player;
 	}
 
+	/**
+	 * Establece el nombre del jugador.
+	 * 
+	 * @param jugador El nuevo nombre del jugador.
+	 */
 	public void setJugador(String jugador) {
 		this.player = jugador;
 	}
 
+	// Getter y Setter para la pelota
+	/**
+	 * Obtiene la instancia de la pelota actual en el juego.
+	 * 
+	 * @return La instancia de la pelota actual en el juego.
+	 */
 	public Ball getPelota() {
 		return ball;
 	}
 
+	/**
+	 * Establece la instancia de la pelota en el juego.
+	 * 
+	 * @param pelota La nueva instancia de la pelota en el juego.
+	 */
 	public void setPelota(Ball pelota) {
 		this.ball = pelota;
 	}

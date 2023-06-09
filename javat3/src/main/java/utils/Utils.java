@@ -27,8 +27,8 @@ public class Utils {
 	 * Metodo para leer una cadena de texto, mostrando antes un mensaje pidiendo el
 	 * tipo de dato que se quiere
 	 * 
-	 * @param message
-	 * @return dato le�do
+	 * @param message mensaje para mostrar al usuario
+	 * @return dato leido
 	 */
 	public static String readString(String message) {
 		System.out.println(message);

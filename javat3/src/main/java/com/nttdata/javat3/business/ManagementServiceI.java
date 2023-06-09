@@ -9,13 +9,13 @@ import com.nttdata.javat3.data.entities.Person;
  * 
  * @author adri
  *
- * @param <T>
+ * @param <T> Clase que hereda de Person
  */
 public interface ManagementServiceI<T extends Person> {
 	/**
 	 * Metodo para registrar una persona en la aplicacion
 	 * 
-	 * @param person
+	 * @param person persona a registrar
 	 */
 	void personReg(T person);
 
@@ -27,22 +27,22 @@ public interface ManagementServiceI<T extends Person> {
 	/**
 	 * Metodo para eliminar a una persona de la aplicacion
 	 * 
-	 * @param dni
+	 * @param dni DNI de la persona
 	 */
 	void deletePerson(String dni);
 
 	/**
 	 * Metodo para actualizar los datos de una persona.
 	 * 
-	 * @param dni
+	 * @param dni DNI de la persona
 	 */
 	void updatePerson(String dni);
 
 	/**
 	 * Metodo para buscar a una persona registrada
 	 * 
-	 * @param dni
-	 * @return
+	 * @param dni DNI de la persona
+	 * @return persona Persona encontrada
 	 */
 	T searchPerson(String dni);
 

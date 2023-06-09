@@ -5,7 +5,7 @@ import utils.Utils;
 /**
  * Clase que representa a un estudiante
  * 
- * @author adri
+ * author adri
  *
  */
 public class Student extends Person {
@@ -14,8 +14,21 @@ public class Student extends Person {
 	 */
 	private String center;
 
+	/**
+	 * Tipos de curso
+	 * 
+	 * @author adri
+	 *
+	 */
 	public enum Course {
-		DAM, DAW
+		/**
+		 * Desarrollo de aplicaciones multiplataforma
+		 */
+		DAM,
+		/**
+		 * Desarrollo de aplicaciones web
+		 */
+		DAW
 	}
 
 	/**
@@ -26,11 +39,11 @@ public class Student extends Person {
 	/**
 	 * Constructor con parametros
 	 * 
-	 * @param dni
-	 * @param nombre
-	 * @param apellidos
-	 * @param center
-	 * @param course
+	 * @param dni       el DNI del estudiante
+	 * @param nombre    el nombre del estudiante
+	 * @param apellidos los apellidos del estudiante
+	 * @param center    el centro educativo en el que estudia el estudiante
+	 * @param course    el curso en el que está matriculado el estudiante
 	 */
 	public Student(String dni, String nombre, String apellidos, String center, String course) {
 		super(dni, nombre, apellidos);
@@ -46,6 +59,42 @@ public class Student extends Person {
 	}
 
 	/**
+	 * Getter del atributo center
+	 * 
+	 * @return el centro educativo en el que estudia el estudiante
+	 */
+	public String getCenter() {
+		return center;
+	}
+
+	/**
+	 * Setter del atributo center
+	 * 
+	 * @param center el nuevo centro educativo en el que estudia el estudiante
+	 */
+	public void setCenter(String center) {
+		this.center = center;
+	}
+
+	/**
+	 * Getter del atributo course
+	 * 
+	 * @return el curso en el que está matriculado el estudiante
+	 */
+	public Course getCourse() {
+		return course;
+	}
+
+	/**
+	 * Setter del atributo course
+	 * 
+	 * @param course el nuevo curso en el que está matriculado el estudiante
+	 */
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	/**
 	 * Metodo para mostrar los datos del estudiante.
 	 */
 	@Override
@@ -55,32 +104,15 @@ public class Student extends Person {
 	}
 
 	/**
-	 * Metodo para actualizar los datos del estudiante
+	 * Metodo para actualizar los datos del estudiante.
 	 */
 	@Override
 	public void updateData() {
-		this.setDni(Utils.readString("Introduce el dni"));
+		this.setDni(Utils.readString("Introduce el DNI"));
 		this.setNombre(Utils.readString("Introduce el nombre"));
 		this.setApellidos(Utils.readString("Introduce los apellidos"));
 		this.setCenter(Utils.readString("Introduce el centro educativo"));
 		this.setCourse(Utils.readCourse());
-	}
-
-//Getters y setters
-	public String getCenter() {
-		return center;
-	}
-
-	public void setCenter(String center) {
-		this.center = center;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
 	}
 
 }

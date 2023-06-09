@@ -21,11 +21,11 @@ public class Employee extends Person {
 	/**
 	 * Constructor con parametros
 	 * 
-	 * @param dni
-	 * @param nombre
-	 * @param apellidos
-	 * @param category
-	 * @param project
+	 * @param dni       el DNI del empleado
+	 * @param nombre    el nombre del empleado
+	 * @param apellidos los apellidos del empleado
+	 * @param category  la categoría del empleado
+	 * @param project   el proyecto asignado al empleado
 	 */
 	public Employee(String dni, String nombre, String apellidos, String category, String project) {
 		super(dni, nombre, apellidos);
@@ -40,19 +40,38 @@ public class Employee extends Person {
 
 	}
 
-//Getters y setters
+	/**
+	 * Getter del atributo category
+	 * 
+	 * @return la categoría del empleado
+	 */
 	public String getCategory() {
 		return category;
 	}
 
+	/**
+	 * Setter del atributo category
+	 * 
+	 * @param category la nueva categoría del empleado
+	 */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
+	/**
+	 * Getter del atributo project
+	 * 
+	 * @return el proyecto asignado al empleado
+	 */
 	public String getProject() {
 		return project;
 	}
 
+	/**
+	 * Setter del atributo project
+	 * 
+	 * @param project el nuevo proyecto asignado al empleado
+	 */
 	public void setProject(String project) {
 		this.project = project;
 	}
@@ -62,7 +81,7 @@ public class Employee extends Person {
 	 */
 	@Override
 	public void showDetails() {
-		System.out.printf("DNI: %s, Nombre: %s, Apellidos: %s, Categor�a: %s, Proyecto: %s%n", dni, nombre, apellidos,
+		System.out.printf("DNI: %s, Nombre: %s, Apellidos: %s, Categoría: %s, Proyecto: %s%n", dni, nombre, apellidos,
 				category, project);
 	}
 
@@ -71,10 +90,10 @@ public class Employee extends Person {
 	 */
 	@Override
 	public void updateData() {
-		this.setDni(Utils.readString("Introduce el dni"));
+		this.setDni(Utils.readString("Introduce el DNI"));
 		this.setNombre(Utils.readString("Introduce el nombre"));
 		this.setApellidos(Utils.readString("Introduce los apellidos"));
-		this.setCategory(Utils.readString("Introduce la categor�a"));
+		this.setCategory(Utils.readString("Introduce la categoría"));
 		this.setProject(Utils.readString("Introduce el proyecto"));
 	}
 

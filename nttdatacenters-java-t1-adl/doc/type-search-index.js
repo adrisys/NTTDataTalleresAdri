@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.nttdata.javat1.game","l":"Ball"},{"p":"com.nttdata.javat1.game","l":"Field"},{"p":"com.nttdata.javat1.game","l":"Game"},{"p":"com.nttdata.javat1.game","l":"Score"},{"p":"com.nttdata.javat1","l":"T1MainADL"},{"p":"com.nttdata.javat1.game","l":"ThreadError"}];updateSearchResults();

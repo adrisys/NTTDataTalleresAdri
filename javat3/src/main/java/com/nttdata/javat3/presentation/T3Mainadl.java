@@ -22,11 +22,26 @@ public class T3Mainadl {
 	/**
 	 * Constante del texto para opcion invalida
 	 */
-	private static final String INVALID_OPT = "Opci�n inv�lida. Por favor, selecciona una opci�n v�lida del men�.";
+	private static final String INVALID_OPT = "Opcion invalida. Por favor, selecciona una opcion valida del menu.";
 	/**
 	 * Constante del texto para introducir el dni del estudiante
 	 */
 	private static final String DNI_IN = "Introduce el dni del estudiante";
+	/**
+	 * Atributo estático que mantiene constancia de las operaciones con empleados
+	 */
+	private static ManagementServiceImpl<Employee> employeeManagementService = new ManagementServiceImpl<>();
+	/**
+	 * Atributo estático que mantiene constancia de las operaciones con estudiantes
+	 */
+	private static ManagementServiceImpl<Student> studentManagementService = new ManagementServiceImpl<>();
+
+	/**
+	 * Constructor privado para que no se instancie la clase
+	 */
+	private T3Mainadl() {
+
+	}
 
 	/**
 	 * Método principal que inicializa la aplicacion
@@ -64,10 +79,10 @@ public class T3Mainadl {
 	/**
 	 * Metodo que contiene la logica del menu de empleados
 	 * 
-	 * @param scanner
+	 * @param scanner Scanner para leer datos
 	 */
 	private static void employeeManagement(Scanner scanner) {
-		ManagementServiceImpl<Employee> employeeManagementService = new ManagementServiceImpl<>();
+
 		int opcion;
 		boolean goBack = false;
 		Employee emp;
@@ -94,6 +109,9 @@ public class T3Mainadl {
 					emp.showDetails();
 				break;
 			case 5:
+				employeeManagementService.showPersons();
+				break;
+			case 6:
 				goBack = true;
 				break;
 			default:
@@ -107,10 +125,10 @@ public class T3Mainadl {
 	/**
 	 * Metodo que contiene la logica del menu de estudiantes
 	 * 
-	 * @param scanner
+	 * @param scanner Scanner para leer datos
 	 */
 	private static void studentManagement(Scanner scanner) {
-		ManagementServiceImpl<Student> studentManagementService = new ManagementServiceImpl<>();
+
 		int opcion;
 		boolean goBack = false;
 		Student st;
@@ -137,6 +155,9 @@ public class T3Mainadl {
 					st.showDetails();
 				break;
 			case 5:
+				studentManagementService.showPersons();
+				break;
+			case 6:
 				goBack = true;
 				break;
 			default:

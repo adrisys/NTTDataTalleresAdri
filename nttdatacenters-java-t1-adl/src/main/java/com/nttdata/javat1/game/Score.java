@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Clase que representa la puntuación de una partida
+ * Clase que representa la puntuacion de una partida
  * 
  * @author adri
  *
@@ -25,10 +25,10 @@ public class Score implements Comparable<Score> {
 	private long scoreValue;
 
 	/**
-	 * Constructor único para guardar una puntuación
+	 * Constructor unico para guardar una puntuacion
 	 * 
-	 * @param jugador
-	 * @param puntuacion
+	 * @param jugador    jugador de la partida
+	 * @param puntuacion puntuacion de la partida
 	 */
 	public Score(String jugador, long puntuacion) {
 		this.player = jugador;
@@ -36,33 +36,65 @@ public class Score implements Comparable<Score> {
 		scoreList.add(this);
 	}
 
-//Getters y setters
+	// Getter y Setter para el jugador
+	/**
+	 * Obtiene el nombre del jugador actual.
+	 *
+	 * @return El nombre del jugador actual.
+	 */
 	public String getJugador() {
 		return player;
 	}
 
+	/**
+	 * Establece el nombre del jugador actual.
+	 *
+	 * @param jugador El nuevo nombre del jugador actual.
+	 */
 	public void setJugador(String jugador) {
 		this.player = jugador;
 	}
 
+	// Getter y Setter para la puntuacion
+	/**
+	 * Obtiene el valor de la puntuacion actual.
+	 *
+	 * @return El valor de la puntuacion actual.
+	 */
 	public long getPuntuacion() {
 		return scoreValue;
 	}
 
+	/**
+	 * Establece el valor de la puntuacion actual.
+	 *
+	 * @param puntuacion El nuevo valor de la puntuacion actual.
+	 */
 	public void setPuntuacion(long puntuacion) {
 		this.scoreValue = puntuacion;
 	}
 
+	// Getter y Setter para la lista de puntuaciones
+	/**
+	 * Obtiene la lista de puntuaciones.
+	 *
+	 * @return La lista de puntuaciones.
+	 */
 	public static List<Score> getPuntuaciones() {
 		return scoreList;
 	}
 
+	/**
+	 * Establece la lista de puntuaciones.
+	 *
+	 * @param puntuaciones La nueva lista de puntuaciones.
+	 */
 	public static void setPuntuaciones(List<Score> puntuaciones) {
 		Score.scoreList = puntuaciones;
 	}
 
 	/**
-	 * Método que imprime todas las puntuaciones registradas
+	 * Metodo que imprime todas las puntuaciones registradas
 	 */
 	public static void imprimirPuntuaciones() {
 		Collections.sort(scoreList);
@@ -72,7 +104,7 @@ public class Score implements Comparable<Score> {
 		}
 	}
 
-//Sobreescritura de métodos de Object para implementar una lógica concreta de impresión y de comparación
+//Sobreescritura de metodos de Object para implementar una logica concreta de impresion y de comparacion
 	@Override
 	public String toString() {
 		return player + ": " + scoreValue + " puntos.";

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nttdata.javat1"},{"l":"com.nttdata.javat1.game"}];updateSearchResults();

@@ -7,17 +7,24 @@ import com.nttdata.javat1.game.Score;
 import com.nttdata.javat1.game.ThreadError;
 
 /**
- * Clase principal del programa, contiene el método main
+ * Clase principal del programa, contiene el metodo main
  * 
  * @author adri
  *
  */
 public class T1MainADL {
 	/**
-	 * Método main
+	 * Constructor privado para que no se instancie la clase.
+	 */
+	private T1MainADL() {
+
+	}
+
+	/**
+	 * Metodo main
 	 * 
-	 * @param args
-	 * @throws InterruptedException
+	 * @param args lineas de comandos
+	 * @throws InterruptedException si ocurre un error de interrupcion de hilo
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		Scanner s = new Scanner(System.in);

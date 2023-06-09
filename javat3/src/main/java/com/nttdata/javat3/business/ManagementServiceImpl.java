@@ -11,7 +11,7 @@ import com.nttdata.javat3.data.entities.Person;
  * 
  * @author adri
  *
- * @param <T>
+ * @param <T> Clase que hereda de Person
  */
 public class ManagementServiceImpl<T extends Person> implements ManagementServiceI<T> {
 	/**

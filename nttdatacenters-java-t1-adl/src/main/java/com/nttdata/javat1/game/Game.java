@@ -166,7 +166,7 @@ public class Game {
 	private void camino1() throws InterruptedException {
 		for (int i = 0; i < 16; i++) {
 			ball.sety(i + 1);
-			printFrame(1);
+			printFrame(2); // 1ud de recorrido vertical equivalen a 2 horizontales(referencia)
 		}
 		bounce(); // Cuando un bucle termina es porque la pelota rebota
 		if (r.nextDouble() > 0.8)
@@ -174,7 +174,7 @@ public class Game {
 		else {
 			ball.setx(ball.getx() - 1);
 			ball.sety(ball.gety() + 1);
-			printFrame(1.5); // Se aumenta el tiempo porque la pelota esta rebotando.
+			printFrame(3); // Se aumenta el tiempo porque la pelota esta rebotando.
 			currentThread = 3;
 		}
 	}
@@ -186,19 +186,19 @@ public class Game {
 	 */
 	private void camino2() throws InterruptedException {
 		ball.setx(ball.getx() - 1);
-		printFrame(1 + Math.sqrt(5)); // Se aumenta el tiempo porque la pelota esta rebotando. Preguntame el por que
-										// de la operacion matematica y te lo explico.
+		printFrame(2 + Math.sqrt(5)); // Se aumenta el tiempo porque la pelota esta rebotando.
 		for (int i = 0; i < 3; i++) {
 			ball.sety(ball.gety() - 1);
 			ball.setx(ball.getx() - 2);
-			printFrame(Math.sqrt(8));// Al moverse en diagonal 2unidades verticales y 1 horizontal o viceversa se
-										// aplica un factor Sqrt(8)
+			printFrame(Math.sqrt(8));// Al moverse en diagonal 2 unidades horizontales y 1 vertical
+										// se aplica un factor Sqrt(8). Teorema de pitágoras: diagonal=sqrt(x^2 + y^2)
+										// --> (2uds)^2+(2*1uds)^2=8
 		}
 		bounce();
 		for (int i = 0; i < 5; i++) {
 			ball.sety(ball.gety() - 1);
 			ball.setx(ball.getx() + 1);
-			printFrame(Math.sqrt(5));
+			printFrame(Math.sqrt(5)); // (1ud)^2+(2*1uds)^2=5
 		}
 		bounce();
 		ball.sety(ball.gety() - 1);
@@ -222,7 +222,7 @@ public class Game {
 
 		for (int i = 0; i < 22; i++) {
 			ball.setx(ball.getx() - 1);
-			printFrame(0.5); // 1 unidad vertical corresponde a 2 unidades horizontales
+			printFrame(1);
 		}
 		bounce();
 		if (r.nextBoolean())
@@ -261,7 +261,7 @@ public class Game {
 	private void camino5() throws InterruptedException {
 		for (int i = 0; i < 8; i++) {
 			ball.sety(ball.gety() - 1);
-			printFrame(1);
+			printFrame(2);
 		}
 		bounce();
 		currentThread = 6;
@@ -297,7 +297,7 @@ public class Game {
 	private void camino7() throws InterruptedException {
 		for (int i = 0; i < 4; i++) {
 			ball.sety(ball.gety() + 1);
-			printFrame(1);
+			printFrame(2);
 		}
 		bounce();
 		ball.setx(ball.getx() - 1);
@@ -305,7 +305,7 @@ public class Game {
 		printFrame(Math.sqrt(5));
 		for (int i = 0; i < 4; i++) {
 			ball.setx(ball.getx() - 1);
-			printFrame(0.5);
+			printFrame(1);
 		}
 		bounce();
 		currentThread = 6;
@@ -348,7 +348,7 @@ public class Game {
 		bounce();
 		for (int i = 0; i < 9; i++) {
 			ball.sety(ball.gety() - 1);
-			printFrame(1);
+			printFrame(2);
 		}
 
 		currentThread = 12;
@@ -390,12 +390,12 @@ public class Game {
 		printFrame(2 * Math.sqrt(5));
 		ball.sety(ball.gety() + 1);
 		ball.setx(ball.getx() + 5);
-		printFrame(Math.sqrt(26));
+		printFrame(Math.sqrt(9));
 		bounce();
 
 		for (int i = 0; i < 4; i++) {
 			ball.sety(ball.gety() - 1);
-			printFrame(1);
+			printFrame(2);
 		}
 		currentThread = 12;
 		new Score(player, score);

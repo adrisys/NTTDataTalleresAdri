@@ -220,9 +220,9 @@ public class Game {
 	 */
 	private void camino3() throws InterruptedException {
 
-		for (int i = 0; i < 22; i++) {
-			ball.setx(ball.getx() - 1);
-			printFrame(1);
+		for (int i = 0; i < 22; i += 2) {
+			ball.setx(ball.getx() - 2);
+			printFrame(2);
 		}
 		bounce();
 		if (r.nextBoolean())
@@ -303,9 +303,9 @@ public class Game {
 		ball.setx(ball.getx() - 1);
 		ball.sety(ball.gety() + 1);
 		printFrame(Math.sqrt(5));
-		for (int i = 0; i < 4; i++) {
-			ball.setx(ball.getx() - 1);
-			printFrame(1);
+		for (int i = 0; i < 4; i += 2) {
+			ball.setx(ball.getx() - 2);
+			printFrame(2);
 		}
 		bounce();
 		currentThread = 6;
